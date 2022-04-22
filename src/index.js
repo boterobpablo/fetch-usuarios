@@ -67,6 +67,14 @@ init();
 cerrarModal.addEventListener('click', () => {
     div.innerHTML = '';
     modalUsuario.classList.toggle('d-none');
+
+    // habilitar botones cuando se cierra el modal
+    for(let boton of botonEliminar){
+        boton.removeAttribute('disabled', '');
+    }
+
+    botonObtener.removeAttribute('disabled', '');
+    botonCrear.removeAttribute('disabled', '');
 });
 
 
@@ -117,10 +125,18 @@ botonCrear.addEventListener('click', async () => {
     div.classList.add('position-absolute', 'top-50', 'start-50', 'translate-middle')
     modalUsuario.appendChild(div);
     modalUsuario.classList.toggle('d-none');
-    
+
+    // deshabilitar botones mientras el modal esta activo
+    for(let boton of botonEliminar){
+        boton.setAttribute('disabled', '');
+    }
+
+    botonObtener.setAttribute('disabled', '');
+    botonCrear.setAttribute('disabled', '');
+
     // obtener la informacion del formulario en un objeto
     document.querySelector('form')
-    .addEventListener('submit', async(e) => {
+        .addEventListener('submit', async (e) => {
             e.preventDefault()
             const data = Object.fromEntries(
                 new FormData(e.target)
@@ -132,6 +148,14 @@ botonCrear.addEventListener('click', async () => {
             crearFilas(usu)
             div.innerHTML = '';
             modalUsuario.classList.toggle('d-none');
+
+            // habilitar botones cuando se cierra el modal
+            for(let boton of botonEliminar){
+                boton.removeAttribute('disabled', '');
+            }
+
+            botonObtener.removeAttribute('disabled', '');
+            botonCrear.removeAttribute('disabled', '');
         })
 });
 
