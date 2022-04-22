@@ -23,7 +23,6 @@ export const getUsuario = async() => {
     id = id();
     const resp = await fetch(`${urlPeticiones}/${id}`);
     const { data:usuario } = await resp.json();
-    console.log(usuario);
     
     return usuario
 }
@@ -36,7 +35,18 @@ export const createUsuario = async(usuario) => {
         body: JSON.stringify(usuario),
         headers: { 'Content-Type': 'application/json'}
     });
-    console.log(usuario);
+    
+    return await resp.json();
+}
+
+
+export const updateUsuario = async(usuario) => {
+    
+    const resp = await fetch(`${urlPeticiones}/${usuario.id}`, {
+        method: 'PUT',
+        body: JSON.stringify(usuario),
+        headers: { 'Content-Type': 'application/json'}
+    });
     
     return await resp.json();
 }
