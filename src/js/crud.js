@@ -29,11 +29,10 @@ export const getUsuario = async() => {
 }
 
 
-export const updateUsuario = async(usuario) => {
+export const createUsuario = async(usuario) => {
     
-    const id = usuario.id;
-    const resp = await fetch(`${urlPeticiones}/${id}`, {
-        method: 'PUT',
+    const resp = await fetch(`${urlPeticiones}`, {
+        method: 'POST',
         body: JSON.stringify(usuario),
         headers: { 'Content-Type': 'application/json'}
     });

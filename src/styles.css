@@ -1,1 +1,12 @@
+.anchoInput{
+    width: 20rem;
+}
 
+.anchoSubmit{
+    width: 10rem;
+}
+
+.cerrarModal{
+    cursor: pointer;
+    font-size: 20px;
+}
