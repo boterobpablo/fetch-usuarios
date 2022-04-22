@@ -29,6 +29,10 @@
     height: 50%
 }
 
+img{
+    width: 150px
+}
+
 @media (min-width: 1280px) {
     .modalUsuario{
         width: 50%
